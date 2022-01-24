@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stats RealT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="icon" href="favicon.ico" />
+</head>
+<body class="bg-default">
+    <div class="main-content">
+        <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+            <div class="container-fluid">
+                <h2 class="mb text-white">Total Stats</h2>
+                <div class="header-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Total House</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="nbHouses">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Total RealTokens</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="nbTokens">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Average annuel yield</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="averageYield">0</span> %
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Total house price</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="sumTotalTokenPrice">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Total gross rent month</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="sumTotalGrossRentMonth">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Total gross rent year</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="sumTotalGrossRentYear">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Total net rent day</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="sumNetRentDay">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Total net rent month</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="sumNetRentMonth">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Total net rent year</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="sumNetRentYear">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="mb text-white">Unit Stats</h2>
+                <div class="header-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Price for 1 each token</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="sumUnitTokenPrice">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Average gross rent month</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="averageGrossRentMonth">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Average gross rent year</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="averageGrossRentYear">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Average net rent day</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="averageNetRentDay">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Average net rent month</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="averageNetRentMonth">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Average net rent year</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="averageNetRentYear">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Net rent day with 1 each token</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="sumNetRentDayPerToken">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Net rent month with 1 each token</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="sumNetRentMonthPerToken">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-stats mb">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">Net rent year with 1 each token</h5>
+                                            <span class="h2 font-weight-bold mb-0" id="sumNetRentYearPerToken">0</span> $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id='map' style='width: 400px; height: 300px;'></div>
+
+    <footer>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+
+        <!-- Mapbox -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script>
+            mapboxgl.accessToken = '';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/sigri44/cksthpsbu0go618mitelaaqzx',
+                center: [-95.7943139,36.8637778],
+                zoom: 2
+            });
+
+            // Add zoom and rotation controls to the map.
+            map.addControl(new mapboxgl.NavigationControl());
+
+            // // Create a new marker.
+            // const marker = new mapboxgl.Marker({
+            //     color: "#fba74f"
+            // }).setLngLat([-95.2,36.2])
+            //     .addTo(map)
+
+            const marker = new mapboxgl.Marker({
+                color: "#fba74f"
+            });
+
+            marker.setLngLat([-95.1,36.1]).addTo(map);
+            marker.setLngLat([-95.2,36.2]).addTo(map);
+
+            // getTokensCoordinates()
+
+            // TODO
+            add.locations.forEach((location) => {
+                console.log(location.long + " " + location.lat);
+                // add marker to map
+                var marker = new mapboxgl.Marker(el)
+                    .setLngLat([location.long, location.lat])
+                    .setPopup(popup)
+                    .addTo(this.map);
+
+                this.markers.push(marker);
+            });
+        </script>
+    </footer>
+</body>
+</html>
