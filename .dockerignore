@@ -1,0 +1,6 @@
+.github/*
+Copyright.txt
+docker-compose.yml
+Dockerfile
+LICENSE.txt
+README.md
