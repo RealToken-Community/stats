@@ -18,12 +18,6 @@ jobs:
         with:
           context: .
           push: false
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: realtoken-community/realtoken-stat
-          path: .
           
       - name: List files
         run: ls -al
