@@ -1,14 +1,13 @@
 name: Build docker image
 
-on:
-  workflow_dispatch:
+on: workflow_dispatch:
 
 jobs:
   build:
-    name: Docker build & Artifact
+    name: Docker build
     runs-on: ubuntu-latest
     steps:
-       - name: ssh key passphrase
+       - name: Connect to remote server
          uses: appleboy/ssh-action@master
          with:
           host: ${{ secrets.KURTISONELAB_SSH_HOST }}
