@@ -1,6 +1,9 @@
 name: Build docker image
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - preprod
 
 jobs:
   build:
