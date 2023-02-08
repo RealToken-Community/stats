@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: ssh key passphrase
-        uses: appleboy/ssh-action@master
-        with:
+         uses: appleboy/ssh-action@master
+         with:
           host: ${{ secrets.KURTISONELAB_SSH_HOST }}
           username: ${{ secrets.KURTISONELAB_SSH_USER }}
           key: ${{ secrets.KURTISONELAB_SSH_KEY }}
