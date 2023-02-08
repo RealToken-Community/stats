@@ -14,11 +14,11 @@ jobs:
     steps:
 
        - name: ssh key passphrase
-          uses: appleboy/ssh-action@master
-          with:
-            host: ${{ secrets.KURTISONELAB_SSH_HOST }}
-            username: ${{ secrets.KURTISONELAB_SSH_USER }}
-            key: ${{ secrets.KURTISONELAB_SSH_KEY }}
-            port: ${{ secrets.KURTISONELAB_SSH_PORT }}
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.KURTISONELAB_SSH_HOST }}
+          username: ${{ secrets.KURTISONELAB_SSH_USER }}
+          key: ${{ secrets.KURTISONELAB_SSH_KEY }}
+          port: ${{ secrets.KURTISONELAB_SSH_PORT }}
           # passphrase: ${{ secrets.KURTISONELAB_SSH_KNOWN_HOST }}
-            script: ls -al
+          script: ls -al
