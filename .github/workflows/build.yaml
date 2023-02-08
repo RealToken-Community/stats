@@ -1,27 +1,24 @@
 name: Build docker image
 
 on:
+  workflow_dispatch:
+  
   push:
     branches:
-      - preprod
+      - dev
 
 jobs:
   build:
     name: Docker build & Artifact
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3       
 
-      - name: Build
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: false
-          tags: "realtoken-stat:latest"
-          load: true
-
-      - name: Upload image
-        uses: ishworkh/docker-image-artifact-upload@v1
-        with:
-          image: "realtoken-stat:latest"
+       - name: ssh key passphrase
+          uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.KURTISONELAB_SSH_HOST }}
+            username: ${{ secrets.KURTISONELAB_SSH_USER }}
+            key: ${{ secrets.KURTISONELAB_SSH_KEY }}
+            port: ${{ secrets.KURTISONELAB_SSH_PORT }}
+          # passphrase: ${{ secrets.KURTISONELAB_SSH_KNOWN_HOST }}
+            script: ls -al
