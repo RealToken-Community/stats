@@ -21,4 +21,4 @@ jobs:
           script: |
             cd ./RealT-Stats
             git pull
-            docker build -t realtoken-community/realtoken-stat
+            sudo docker build -t realtoken-community/realtoken-stat .
