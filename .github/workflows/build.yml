@@ -18,4 +18,7 @@ jobs:
           password: ${{ secrets.KURTISONELAB_SSH_PASSWORD }}
           port: ${{ secrets.KURTISONELAB_SSH_PORT }}
           # passphrase: ${{ secrets.KURTISONELAB_SSH_KNOWN_HOST }}
-          script: ls -al
+          script: |
+            git clone https://github.com/RealT-Community/RealT-Stats.git --branch preprod --single-branch
+            cd ./RealT-Stats
+            docker build -t realtoken-community/realtoken-stat
