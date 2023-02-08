@@ -12,7 +12,6 @@ jobs:
     name: Docker build & Artifact
     runs-on: ubuntu-latest
     steps:
-
        - name: ssh key passphrase
         uses: appleboy/ssh-action@master
         with:
