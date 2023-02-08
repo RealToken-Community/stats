@@ -1,9 +1,7 @@
 name: Build docker image
 
 on:
-  push:
-    branches:
-      - preprod
+  worflow_dispatch:
 
 jobs:
   build:
