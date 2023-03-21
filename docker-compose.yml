@@ -17,6 +17,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.sf-realt-stats.rule=Host(`stats.realt.community`)"
       - "traefik.http.routers.sf-realt-stats.entrypoints=websecure"
+    restart: always
 
 networks:
   traefik-realt:
