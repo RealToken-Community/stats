@@ -2,17 +2,12 @@ version: '3'
 
 services:
   web:
-    image: nginx
+    image: realtstats
     container_name: realtstats_web
-    volumes:
-     - ./:/usr/share/nginx/html
     ports:
-     - "8081:80"
+      - "8081:80"
     networks:
       - traefik-realt
-    environment:
-     - NGINX_HOST=stats.realt.community
-     - NGINX_PORT=80
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.sf-realt-stats.rule=Host(`stats.realt.community`)"

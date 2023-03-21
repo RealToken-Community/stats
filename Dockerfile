@@ -1,3 +1,4 @@
-FROM httpd:latest as build
+FROM caddy:2.6.4-alpine
 
-COPY . /usr/local/apache2/htdocs/
+#COPY . /etc/caddy/  Config directory
+COPY . /usr/share/caddy/
