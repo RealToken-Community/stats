@@ -12,7 +12,7 @@ function main() {
 
 
 function getApiData() {
-	const API_KEY = '43154c08-preprod-1e05-b909-ba71b3c6680a'
+	const API_KEY = ''
 	const url = "https://api.realt.community/v1/token"
 
 	let nbHouses = 0
