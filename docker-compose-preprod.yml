@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    image: realtstats_preprod
+    build:
+      context: .
+    container_name: realtstats_web_preprod
+    ports:
+      - "8082:80"
+    networks:
+      - traefik-realt
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sf-realt-stats-preprod.rule=Host(`stats.preprod.realt.community`)"
+      - "traefik.http.routers.sf-realt-stats-preprod.entrypoints=websecure"
+    restart: always
+
+networks:
+  traefik-realt:
+    external: true
