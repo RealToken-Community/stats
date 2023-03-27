@@ -41,7 +41,7 @@ jobs:
             SSH_PORT: ${{ secrets.SSH_PORT }}
 
         - name: pull & up!
-            run: |
+          run: |
             cd /home/realt/docker/RealT-Stats-Preprod
             git pull
             docker compose pull
