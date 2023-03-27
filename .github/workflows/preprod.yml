@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - preprod
-      
+
   workflow_dispatch:
 
 jobs:
@@ -30,5 +30,6 @@ jobs:
             port: ${{ secrets.SSH_PORT }}
             script: |
               cd /home/realt/docker/RealT-Stats-Preprod
+              git pull
               docker compose pull
               docker compose up -d
