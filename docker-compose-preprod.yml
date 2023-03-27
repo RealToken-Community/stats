@@ -2,9 +2,7 @@ version: '3'
 
 services:
   web:
-    image: realtstats_preprod
-    build:
-      context: .
+    image: registry.realt.community/realtstats_preprod:latest
     container_name: realtstats_web_preprod
     ports:
       - "8082:80"
