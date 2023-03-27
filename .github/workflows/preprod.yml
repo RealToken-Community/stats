@@ -10,8 +10,7 @@ jobs:
     name: Build, push, pull & up
     runs-on: ubuntu-latest
     steps:
-        - name: Check out the repo
-          uses: actions/checkout@v3
+        - uses: actions/checkout@v3
 
         - name: Build and push Docker image
           uses: docker/build-push-action@v4
@@ -19,3 +18,15 @@ jobs:
             context: .
             push: true
             tags: registry.realt.community/realtstats_preprod:latest
+          
+        - name: Connect to remote server
+          uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.SSH_HOST }}
+            username: ${{ secrets.SSH_USER }}
+            key: ${{ secrets.SSH_KEY }}
+            port: ${{ secrets.SSH_PORT }}
+            script: |
+              cd /home/realt/docker/RealT-Stats-Preprod
+              docker compose pull
+              docker compose up -d
