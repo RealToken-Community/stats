@@ -3,4 +3,4 @@ Stats summary page for RealTokens
 
 # Website
 
-https://stats.realt.community/
+https://stats.preprod.realt.community/
