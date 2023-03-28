@@ -4,7 +4,7 @@ ARG APIKEY=api_key
 ENV APIKEY $APIKEY
 
 
-RUN ls -al ./
+RUN ls -al root/
 
 RUN sed -i -e 's/secret.API_KEY/${APIKEY}/g' /assets/js/main.js
 
