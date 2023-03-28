@@ -1,6 +1,7 @@
 .github/*
 Copyright.txt
 docker-compose.yml
+docker-compose-preprod.yml
 Dockerfile
 LICENSE.txt
 README.md
