@@ -4,9 +4,9 @@ ARG APIKEY=api_key
 ENV APIKEY $APIKEY
 
 
-RUN ls -al root/
+COPY ./assets/js/main.js /tmp/
 
-RUN sed -i -e 's/secret.API_KEY/${APIKEY}/g' /assets/js/main.js
+RUN sed -i -e 's/secret.API_KEY/${APIKEY}/g' /tmp/main.js
 
 #COPY . /etc/caddy/  Config directory
 COPY . /usr/share/caddy/
