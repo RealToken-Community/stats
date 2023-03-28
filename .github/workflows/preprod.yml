@@ -20,6 +20,8 @@ jobs:
             context: .
             push: true
             tags: registry.realt.community/realtstats_preprod:latest
+            secrets: |
+              "api_key=${{ secrets.API_KEY }}"
           
         - name: Configure SSH
           run: |
