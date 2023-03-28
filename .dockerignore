@@ -5,3 +5,4 @@ docker-compose-preprod.yml
 Dockerfile
 LICENSE.txt
 README.md
+.env
