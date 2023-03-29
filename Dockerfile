@@ -1,6 +1,6 @@
 FROM caddy:2.6.4-alpine
 
-RUN --mount=type=secret,id=api_key
+RUN --mount=type=secret,id=api_key echo ${api_key}
 
 COPY . /usr/share/caddy/
 
