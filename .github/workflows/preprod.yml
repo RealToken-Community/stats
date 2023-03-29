@@ -17,10 +17,8 @@ jobs:
         - name: Replace API Key
           env:
             API: ${{ secrets.API_KEY }}
-          run: |
-            sed -e "s/secret.API_KEY/$API/" assets/js/main.js
-            ls -alR
-
+          run: sed -i -e "s/secret.API_KEY/$API/" assets/js/main.js
+          
         - name: Build and push Docker image
           uses: docker/build-push-action@v4
           with:
