@@ -14,15 +14,18 @@ jobs:
     steps:
         - uses: actions/checkout@v3
 
+        - name: Replace API Key
+          env:
+            API: ${{ secrets.API_KEY }}
+          run: sed -e "s/secret.API_KEY/$API/" /assets/js/main.js
+
         - name: Build and push Docker image
           uses: docker/build-push-action@v4
           with:
             context: .
             push: true
             tags: registry.realt.community/realtstats_preprod:latest
-            secrets: |
-              "api_key=${{ secrets.API_KEY }}"
-          
+                      
         - name: Configure SSH
           run: |
             mkdir -p ~/.ssh/
