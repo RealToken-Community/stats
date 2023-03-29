@@ -5,4 +5,4 @@ RUN --mount=type=secret,id=api_key,dst=/usr/share/caddy/api
 
 COPY . /usr/share/caddy/
 
-RUN sed -i -r "s/secret.API_KEY/$(sed 's:/:\/:g' /usr/share/caddy/api)/" /usr/share/caddy/assets/js/main.js
+RUN sed -i -e "s/secret.API_KEY/$(sed 's:/:\\/:g' /usr/share/caddy/api)/" /usr/share/caddy/assets/js/main.js
