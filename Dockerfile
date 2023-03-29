@@ -1,6 +1,6 @@
 FROM caddy:2.6.4-alpine
 
-RUN --mount=type=secret, id=api_key
+RUN --mount=type=secret,id=api_key
 
 ARG APIKEY=api_key
 ENV APIKEY $APIKEY
