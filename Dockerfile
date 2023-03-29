@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM caddy:2.6.4-alpine
 
-RUN --mount=type=secret,id=api_key echo ${api_key}
+RUN --mount=type=secret,id=api_key cat /run/secrets/api_key
 
 COPY . /usr/share/caddy/
 
