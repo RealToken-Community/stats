@@ -1,12 +1,10 @@
 # syntax=docker/dockerfile:1
 FROM caddy:2.6.4-alpine
 
-RUN --mount=type=secret,id=api_key 
+RUN --mount=type=secret,id=api_key,dst=.api
 
-ARG api_key=$(cat /run/secrets/api_key)
 
-RUN ${api_key}
 
 COPY . /usr/share/caddy/
 
-RUN sed -i -r 's/secret.API_KEY/${api_key}/' /usr/share/caddy/assets/js/main.js
+RUN sed 's/secret.API_KEY/cat api_key/e' /usr/share/caddy/assets/js/main.js
