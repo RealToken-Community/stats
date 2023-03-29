@@ -9,4 +9,4 @@ RUN ${api_key}
 
 COPY . /usr/share/caddy/
 
-RUN sed -i -r "s/secret.API_KEY/${api_key}/g" /usr/share/caddy/assets/js/main.js
+RUN sed -i -r 's/secret.API_KEY/${api_key}/' /usr/share/caddy/assets/js/main.js
