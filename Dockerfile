@@ -11,3 +11,5 @@ RUN sed -i -e "s/secret.API_KEY/${APIKEY}/g" /tmp/main.js
 #COPY . /etc/caddy/  Config directory
 COPY . /usr/share/caddy/
 
+COPY /tmp/main.js /usr/share/caddy/assets/js/main.js
+
