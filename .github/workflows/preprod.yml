@@ -1,11 +1,11 @@
 name: To registry, pull and up
 
 on:
+  workflow_dispatch:
+  pull_request:
   push:
     branches:
       - preprod
-
-  workflow_dispatch:
 
 jobs:
   build:
