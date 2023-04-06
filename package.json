@@ -1,0 +1,25 @@
+{
+  "name": "realt-stats",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "i": "rm -rf node_modules && yarn",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "i18next": "^22.4.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "@realtoken/realt-commons": "^1.0.2",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0"
+  }
+}
