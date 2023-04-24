@@ -24,12 +24,10 @@ const AsyncAwait = () => {
         throw new Error("API Error");
       }
       const rawData = await response.json();
-      const uniquePropertiesData = rawData.filter((objet, index, self) => index === self.findIndex((t) => ( t.coordinate.lat === objet.coordinate.lat && t.coordinate.lng === objet.coordinate.lng)));
+      const uniquePropertiesData = rawData.filter((objet, index, self) => index === self.findIndex((t) => ( t.coordinate.lat === objet.coordinate.lat && t.coordinate.lng === objet.coordinate.lng)) && objet.canal === "release");
       const filteredData = rawData.filter(token => !token.fullName.startsWith("OLD-") && !token.fullName.startsWith("D "));
       const dFilteredData = rawData.filter(token => token.fullName.startsWith("D "));
       const oldFilteredData = rawData.filter(token => token.fullName.startsWith("OLD-"));
-
-
 
       setUniqueProperties(uniquePropertiesData);
       setsTokens(filteredData);
