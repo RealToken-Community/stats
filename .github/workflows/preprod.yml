@@ -53,7 +53,7 @@ jobs:
                 SSH_HOST: ${{ secrets.SSH_HOST }}
                 SSH_PORT: ${{ secrets.SSH_PORT }}
 
-        -   name: Update alpha environment
+        -   name: Update environment
             run: |
                 ssh staging 'export DOCKER_BRANCH=${{ github.ref_name }}
                 cd /home/realt/docker/stats/${DOCKER_BRANCH}
