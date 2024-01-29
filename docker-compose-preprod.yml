@@ -10,8 +10,8 @@ services:
       - traefik-realt
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.stats-preprod.rule=Host(`stats.preprod.realt.community`)"
-      - "traefik.http.routers.stats-preprod.entrypoints=websecure"
+      - "traefik.http.routers.stats-${DOCKER_BRANCH}.rule=Host(`stats.${DOCKER_BRANCH}.realt.community`)"
+      - "traefik.http.routers.stats-${DOCKER_BRANCH}.entrypoints=websecure"
     restart: always
 
 networks:
