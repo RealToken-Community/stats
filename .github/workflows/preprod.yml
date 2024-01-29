@@ -1,11 +1,12 @@
-name: To registry, pull and up
+name: Deploy server over CI/CD
 
 on:
-  workflow_dispatch:
-  pull_request:
-  push:
-    branches:
-      - preprod
+    push:
+        branches: [ "preprod" ]
+    pull_request:
+        branches: [ "preprod" ]
+permissions:
+    contents: read
 
 jobs:
   build:
@@ -19,37 +20,44 @@ jobs:
             API: ${{ secrets.API_KEY }}
           run: sed -i -e "s/secret.API_KEY/$API/" assets/js/main.js
 
-        - name: Build and push Docker image
-          uses: docker/build-push-action@v4
-          with:
-            context: .
-            push: true
-            tags: registry.realt.community/stats-realt:${{ github.ref_name }}
-                      
-        - name: Configure SSH
-          run: |
-            mkdir -p ~/.ssh/
-            echo "$SSH_KEY" > ~/.ssh/staging.key
-            chmod 600 ~/.ssh/staging.key
-            cat >>~/.ssh/config <<END
-            Host staging
-              HostName $SSH_HOST
-              User $SSH_USER
-              Port $SSH_PORT
-              IdentityFile ~/.ssh/staging.key
-              StrictHostKeyChecking no
-            END
-          env:
-            SSH_USER: ${{ secrets.SSH_USER }}
-            SSH_KEY: ${{ secrets.SSH_KEY }}
-            SSH_HOST: ${{ secrets.SSH_HOST }}
-            SSH_PORT: ${{ secrets.SSH_PORT }}
+        -   name: Login to registry
+            uses: docker/login-action@v2
+            with:
+                registry: ${{ secrets.DOCKER_REGISTRY }}
+                username: ${{ secrets.DOCKER_LOGIN }}
+                password: ${{ secrets.DOCKER_PASSWD }}
 
-        - name: pull & up!
-          run: |
-              ssh staging 'export DOCKER_BRANCH=${{ github.ref_name }}
-              cd /home/realt/docker/stats/${DOCKER_BRANCH}
-              git pull origin ${{ github.ref_name }}
-              docker compose --file docker-compose.${{ github.ref_name }}.yml pull
-              docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASSWD }} ${{ secrets.DOCKER_REGISTRY }}
-              docker compose --project-name ${{ github.ref_name }}-stats --file docker-compose.${{ github.ref_name }}.yml up -d'
+        -   name: Build and push Docker image
+            uses: docker/build-push-action@v4
+            with:
+                context: .
+                push: true
+                tags: ${{ secrets.DOCKER_REGISTRY }}/stats-realt:${{ github.ref_name }}
+                      
+        -   name: Configure SSH
+            run: |
+                mkdir -p ~/.ssh/
+                echo "$SSH_KEY" > ~/.ssh/staging.key
+                chmod 600 ~/.ssh/staging.key
+                cat >>~/.ssh/config <<END
+                Host staging
+                  HostName $SSH_HOST
+                  User $SSH_USER
+                  Port $SSH_PORT
+                  IdentityFile ~/.ssh/staging.key
+                  StrictHostKeyChecking no
+                END
+            env:
+                SSH_USER: ${{ secrets.SSH_USER }}
+                SSH_KEY: ${{ secrets.SSH_KEY }}
+                SSH_HOST: ${{ secrets.SSH_HOST }}
+                SSH_PORT: ${{ secrets.SSH_PORT }}
+
+        -   name: Update alpha environment
+            run: |
+                ssh staging 'export DOCKER_BRANCH=${{ github.ref_name }}
+                cd /home/realt/docker/stats/${DOCKER_BRANCH}
+                git pull origin ${{ github.ref_name }}
+                docker compose --file docker-compose.${{ github.ref_name }}.yml pull
+                docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASSWD }} ${{ secrets.DOCKER_REGISTRY }}
+                docker compose --project-name ${{ github.ref_name }}-stats --file docker-compose.${{ github.ref_name }}.yml up -d'
