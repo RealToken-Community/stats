@@ -24,7 +24,7 @@ jobs:
           with:
             context: .
             push: true
-            tags: registry.realt.community/realtstats_preprod:latest
+            tags: registry.realt.community/stats-realt:${{ github.ref_name }}
                       
         - name: Configure SSH
           run: |
