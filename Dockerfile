@@ -1,3 +1,7 @@
-FROM caddy:2.6.4-alpine
+FROM caddy:2.7.6-alpine
 
-COPY . /usr/share/caddy/
+COPY *.html /usr/share/caddy/
+COPY assets /usr/share/caddy/assets
+COPY images /usr/share/caddy/images
+
+WORKDIR /usr/share/caddy
