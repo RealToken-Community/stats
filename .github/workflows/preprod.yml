@@ -32,7 +32,7 @@ jobs:
             with:
                 context: .
                 push: true
-                tags: ${{ secrets.DOCKER_REGISTRY }}/stats-realt:${{ github.ref_name }}
+                tags: ${{ secrets.DOCKER_REGISTRY }}/stats:${{ github.ref_name }}
                       
         -   name: Configure SSH
             run: |
