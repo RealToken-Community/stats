@@ -2,7 +2,7 @@ version: '3'
 
 services:
   web:
-    image: registry.realt.community/stats-realt:${DOCKER_BRANCH}
+    image: registry.realt.community/stats:${DOCKER_BRANCH}
     container_name: ${DOCKER_BRANCH}-stats
     # ports:
     #   - "8082:80"
