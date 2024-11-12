@@ -10,7 +10,7 @@ services:
       - traefik-realt
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.stats-${DOCKER_BRANCH}.rule=Host(`stats.${DOCKER_BRANCH}.realt.community`)"
+      - "traefik.http.routers.stats-${DOCKER_BRANCH}.rule=Host(`stats.${DOCKER_BRANCH}.realtoken.community`)"
       - "traefik.http.routers.stats-${DOCKER_BRANCH}.entrypoints=websecure"
     restart: always
 
