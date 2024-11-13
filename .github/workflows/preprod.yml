@@ -56,7 +56,7 @@ jobs:
         -   name: Update environment
             run: |
                 ssh staging 'export DOCKER_BRANCH=${{ github.ref_name }}
-                cd /home/realt/docker/stats/${DOCKER_BRANCH}
+                cd /var/docker/stats/${DOCKER_BRANCH}
                 git pull origin ${{ github.ref_name }}
                 docker compose --file docker-compose.${{ github.ref_name }}.yml pull
                 docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASSWD }} ${{ secrets.DOCKER_REGISTRY }}
