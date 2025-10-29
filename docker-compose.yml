@@ -10,7 +10,7 @@ services:
       - traefik-realt
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.realt-stats.rule=Host(`stats.realt.community`)"
+      - "traefik.http.routers.realt-stats.rule=Host(`stats.realtoken.community`)"
       - "traefik.http.routers.realt-stats.entrypoints=websecure"
 
 networks:
